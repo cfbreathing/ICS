@@ -1,0 +1,152 @@
+\documentclass[20pt]{ctexart}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{lmodern}
+\usepackage{xeCJK}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{verbatimbox}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{verbatimbox}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+%设置新环境
+\newtheorem{example}{例}             
+\newtheorem{theorem}{定理}[section] 
+\newtheorem{definition}{定义}[section]
+\newtheorem{property}{性质}
+\newtheorem{proposition}{命题}
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}
+\newtheorem{remark}{注}
+\newtheorem{condition}{条件}
+\newtheorem{conclusion}{结论}
+\newtheorem{assumption}{假设}
+\newenvironment{solution}{\begin{proof}[\indent\bf 解]}{\end{proof}}%设置新环境
+\CTEXsetup[format={\Large\bfseries}]{section}%加入字体
+\geometry{a4paper,scale=0.8}%设置文档格式
+\tikzstyle{file} = [rectangle, rounded corners, minimum width = 3cm, minimum height=1.2cm ,text centered, draw = black]%设置流程图
+\tikzstyle{dots} = [rectangle, rounded corners, minimum width = 1.5cm, minimum height=2cm ,text centered, draw = black,text width=3cm]%设置流程图
+\tikzstyle{arrow} = [->,>=stealth]%设置流程图
+\usetikzlibrary{arrows, decorations.pathmorphing, backgrounds, positioning, fit, petri, automata}%使用流程图元素
+\bibliographystyle{unsrt}%设置引用格式
+
+\title{Lab3 Report}
+\author{作者:罗文杰\\专业: 计算机科学与技术\\学号: 3210102456}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+After learning queue and stack in class, you are wondering if there is something more flexible. Maybe a list supporting pop and push on both sides sounds great.
+
+We should maintain such a list, and support 4 operations:
+
+\begin{enumerate}[itemindent=2em]
+        \setlength{\itemsep}{-5pt}
+        \item \verb| + s | : push s to the left side
+        \item \verb|  -  | : pop a char from the left side and print it
+        \item \verb| [ s | : push s to the right side
+        \item \verb|  ]  | : pop a char from the right side and print it
+      \end{enumerate}
+
+Here, the list is empty at first, and s can be letters either lowercase or uppercase. If the list pops when empty, just print a \_ as the result.
+
+\section{Array vs Linked List}
+A data structure is a way to store and organize data in a computer, so that it can be used efficiently. 
+
+Abstract Data Types (ADTs) are purely theoretical entities used to simplify the description of abstract algorithms, to classify and evaluate data structures, and to formally describe the type system of programming languages.
+
+Array and Linked List are two ADTs. An array is a combination of numbers. The numbers stored in the same array must satisfy two conditions: they must be of the same type and the numbers must be stored consecutively in memory. 
+
+A linked list is a non-contiguous, non-sequential storage structure on a physical storage unit, 
+where the logical order of data elements is achieved by the linking order of the pointers in the linked table. 
+It consists of a series of nodes (each element in a linked table is called a node), 
+which can be generated dynamically at runtime. Each node consists of two parts: a data field that stores the data elements and a pointer field that stores the address of the next node. 
+
+To build a stack, we can use either arrary or linked list, each of which has its advantages and disadvantages. Comparison between the two is as follws.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline
+        & Array & Linked list \\
+    \hline
+    Memory Boundaries & no borders & bounded \\
+    \hline
+    Memory distribution & continuous distribution & discontinuous distribution \\
+    \hline
+    Accessibility & random access available & visit in order \\
+    \hline
+    Capacity size & usually fixed & unsettled \\
+    \hline
+    Space occupied & small memory footprint & big memory footprint \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Given the ease of code implementation, we use arrays to complete the Flexible Stack architecture.
+
+\section{Logics of the Code}
+To make a stack can be PUSH or POP from two sides, we need two pointers pointing to the two top.
+
+(NOTE: L is low address and R is high address in my program)
+    \begin{figure}[H]
+        \includegraphics[width=0.32\textwidth]{img/5.png}
+      \end{figure} 
+
+When PUSH element into left side or right side, the corresponding pointer will store element's value into the memory, and move one space to left or right.
+
+    \begin{figure}[H]
+        \includegraphics[width=0.4\textwidth]{img/6.png}
+      \end{figure} 
+
+When POP element from left side or right side, The program will first check the difference between the addresses pointed to by the two pointers. 
+If this difference is one, it means that the stack is empty and POP fails. 
+If not, the corresponding pointer move one space and lord the element from memory.
+
+    \begin{figure}[H]
+        \includegraphics[width=0.45\textwidth]{img/7.png}
+      \end{figure}
+
+\section{Part of the Code}
+The code to implement PUSH and POP is shown below.
+\begin{verbatim}
+                        ; R0 store the value needed to print
+                        ; R4 is the flag to decide wh left or right side the operated side
+                        ; R5 is the left pointer, R6 is the right pointer.
+                POP     NOT R1, R6
+                        ADD R1, R1, #2
+                        ADD R1, R5, R1
+                        BRz fail        ; Branch if stack is empty
+                        ADD R1, R4, #0
+                        BRz POLEFT      ; to left
+                        ADD R6, R6, #-1
+                        LDR R0, R6, #0  ; get the value
+                        BRnzp success
+                POLEFT  ADD R5, R5, #1
+                        LDR R0, R5, #0  ; get the value
+                        BRnzp success        
+
+                PUSH    ADD R1, R4, #0
+                        BRz PULEFT      ; to left
+                        STR R0, R6, #0 
+                        ADD R6, R6, #1 
+                        BRnzp success
+                PULEFT  STR R0, R5, #0 
+                        ADD R5, R5, #-1 
+                success RET
+                fail    LD  R0, FLAG
+                        RET
+                FLAG    .FILL   x5F     ; _
+        \end{verbatim}
+\end{document}
