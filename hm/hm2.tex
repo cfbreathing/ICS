@@ -1,0 +1,162 @@
+\documentclass[20pt]{ctexart}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{lmodern}
+\usepackage{xeCJK}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{verbatimbox}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{verbatimbox}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+%设置新环境
+\newtheorem{example}{例}             
+\newtheorem{theorem}{定理}[section] 
+\newtheorem{definition}{定义}[section]
+\newtheorem{property}{性质}
+\newtheorem{proposition}{命题}
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}
+\newtheorem{remark}{注}
+\newtheorem{condition}{条件}
+\newtheorem{conclusion}{结论}
+\newtheorem{assumption}{假设}
+\newenvironment{solution}{\begin{proof}[\indent\bf 解]}{\end{proof}}%设置新环境
+\CTEXsetup[format={\Large\bfseries}]{section}%加入字体
+\geometry{a4paper,scale=0.8}%设置文档格式
+\tikzstyle{file} = [rectangle, rounded corners, minimum width = 3cm, minimum height=1.2cm ,text centered, draw = black]%设置流程图
+\tikzstyle{dots} = [rectangle, rounded corners, minimum width = 1.5cm, minimum height=2cm ,text centered, draw = black,text width=3cm]%设置流程图
+\tikzstyle{arrow} = [->,>=stealth]%设置流程图
+\usetikzlibrary{arrows, decorations.pathmorphing, backgrounds, positioning, fit, petri, automata}%使用流程图元素
+\bibliographystyle{unsrt}%设置引用格式
+
+\title{Homework2}
+\author{作者:罗文杰\\专业: 计算机科学与技术\\学号: 3210102456}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{2.40}
+(a) 2
+
+(b) -17
+
+(c) $+\infty$
+
+(d) -3.125
+
+\section*{2.43}
+(a) Hello!
+
+(b) hELLO!
+
+(c) Computers!
+
+(d) LC-2
+
+\section*{3.6}
+\begin{table}[H]
+\centering
+\begin{tabular}{lr|lcr}
+    \hline
+    A & B & C & D & Z \\
+    \hline
+    0 & 0 & 1 & 1 & 0 \\
+    0 & 1 & 1 & 0 & 0 \\
+    1 & 0 & 0 & 1 & 0 \\
+    1 & 1 & 0 & 0 & 1 \\
+    \hline
+    \end{tabular}
+    \end{table}
+
+\section*{3.20}
+The 16-input multiplexer have 4 select lines and 1 output line.
+
+\section*{3.23}
+(a)\begin{table}[H]
+\centering
+\begin{tabular}{lcr|lr}
+    \hline
+    A & B & C & D & Z \\
+    \hline
+    0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 1 & 0 \\
+    0 & 1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 1 & 0 \\
+    0 & 1 & 1 & 0 & 0 \\
+    0 & 1 & 1 & 1 & 0 \\
+    1 & 0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 1 & 1 \\
+    1 & 0 & 1 & 0 & 1 \\
+    1 & 0 & 1 & 1 & 1 \\
+    1 & 1 & 0 & 0 & 1 \\
+    1 & 1 & 0 & 1 & 1 \\
+    1 & 1 & 1 & 0 & 1 \\
+    1 & 1 & 1 & 1 & 1 \\
+    \hline
+    \end{tabular}
+    \end{table}
+
+It has 16 rows.
+
+(b) \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{1.png}
+  \end{figure}
+
+\section*{3.26}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{4.jpg}
+    \caption*{gate-level logic}
+  \end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{5.jpg}
+    \caption*{transistor diagram}
+  \end{figure}
+\section*{3.30}
+(a) If X = 0,then S = A + B. And if X = 1,then S = A + B.
+
+(b)Take a same construction as the Figure 3.42, but make C = (NOT)B, and make Carry in = X.
+
+\section*{3.36}
+(a)\begin{table}[H]
+    \centering
+    \begin{tabular}{lr|lcr}
+    \hline
+    A & B & G & E & L \\
+    \hline
+    0 & 0 & 0 & 1 & 0 \\
+    0 & 1 & 0 & 0 & 1 \\
+    1 & 0 & 1 & 0 & 0 \\
+    1 & 1 & 0 & 1 & 0 \\
+    \hline
+    \end{tabular}
+    \end{table}
+
+(b) \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{2.png}
+  \end{figure}
+
+(c) \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{3.png}
+  \end{figure}
+
+\bibliography{reference}
+\end{document}

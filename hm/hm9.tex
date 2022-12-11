@@ -1,0 +1,113 @@
+\documentclass[20pt]{ctexart}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{lmodern}
+\usepackage{xeCJK}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{verbatimbox}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{verbatimbox}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+%设置新环境
+\newtheorem{example}{例}             
+\newtheorem{theorem}{定理}[section] 
+\newtheorem{definition}{定义}[section]
+\newtheorem{property}{性质}
+\newtheorem{proposition}{命题}
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}
+\newtheorem{remark}{注}
+\newtheorem{condition}{条件}
+\newtheorem{conclusion}{结论}
+\newtheorem{assumption}{假设}
+\newenvironment{solution}{\begin{proof}[\indent\bf 解]}{\end{proof}}%设置新环境
+\CTEXsetup[format={\Large\bfseries}]{section}%加入字体
+\geometry{a4paper,scale=0.8}%设置文档格式
+\tikzstyle{file} = [rectangle, rounded corners, minimum width = 3cm, minimum height=1.2cm ,text centered, draw = black]%设置流程图
+\tikzstyle{dots} = [rectangle, rounded corners, minimum width = 1.5cm, minimum height=2cm ,text centered, draw = black,text width=3cm]%设置流程图
+\tikzstyle{arrow} = [->,>=stealth]%设置流程图
+\usetikzlibrary{arrows, decorations.pathmorphing, backgrounds, positioning, fit, petri, automata}%使用流程图元素
+\bibliographystyle{unsrt}%设置引用格式
+
+\title{Homework9}
+\author{作者:罗文杰\\专业: 计算机科学与技术\\学号: 3210102456}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{17.2}
+No.
+
+Taking the code of LC-3 as an example, each time a recursive function is called using JSR, the program puts the address of the next instruction into R7, followed by the code pressing the contents of R7 onto the stack; when the function returns, its return address is the address previously put on the stack, which is the next address of the caller instruction, such that the address is different for each call.
+
+\section*{17.8}
+\begin{verbatim}
+    #include<stdio.h>
+ 
+    int main()
+    {   
+        int in;
+        printf("which Fibonacci number?");
+        scanf("%d", &in);
+
+        int i , f1=1, f2=1;
+        if(in==0||in==1) printf("that Fibonacci number is %d\n", f1);
+        for(i=1;i<=in-2; i++){
+            int t = f1;
+            f1=f2;
+            f2=t+f2;
+        }
+        printf(that Fibonacci number is %d\n", f2);
+        return 0; 
+    }
+    \end{verbatim}
+
+The running times of the recursive version of the Fibonacci and the iterative version on different values of n are shown below.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{img/8.png}
+        \caption*{recursive version:red\\iterative version:blue}
+      \end{figure}
+
+Consider that under the iterative version, the running time of the function is a function on n, while under the recursive version, the running time of the function is a function on $a^n$, where a > 1, so the recursive version is significantly slower.
+
+\section*{17.12}
+(a) No. Each time it is called, the argument to the function becomes smaller, so there is no such value.
+
+(b) 6 function calls are made to func when the program is executed.
+
+(c) 4
+
+\section*{17.14}
+9
+
+7
+
+5
+
+3
+
+1
+
+2
+
+4
+
+6
+
+8
+
+10
+\end{document}

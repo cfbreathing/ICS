@@ -1,0 +1,122 @@
+\documentclass[20pt]{ctexart}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{lmodern}
+\usepackage{xeCJK}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{verbatimbox}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{verbatimbox}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+%设置新环境
+\newtheorem{example}{例}             
+\newtheorem{theorem}{定理}[section] 
+\newtheorem{definition}{定义}[section]
+\newtheorem{property}{性质}
+\newtheorem{proposition}{命题}
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}
+\newtheorem{remark}{注}
+\newtheorem{condition}{条件}
+\newtheorem{conclusion}{结论}
+\newtheorem{assumption}{假设}
+\newenvironment{solution}{\begin{proof}[\indent\bf 解]}{\end{proof}}%设置新环境
+\CTEXsetup[format={\Large\bfseries}]{section}%加入字体
+\geometry{a4paper,scale=0.8}%设置文档格式
+\tikzstyle{file} = [rectangle, rounded corners, minimum width = 3cm, minimum height=1.2cm ,text centered, draw = black]%设置流程图
+\tikzstyle{dots} = [rectangle, rounded corners, minimum width = 1.5cm, minimum height=2cm ,text centered, draw = black,text width=3cm]%设置流程图
+\tikzstyle{arrow} = [->,>=stealth]%设置流程图
+\usetikzlibrary{arrows, decorations.pathmorphing, backgrounds, positioning, fit, petri, automata}%使用流程图元素
+\bibliographystyle{unsrt}%设置引用格式
+
+\title{Homework3}
+\author{作者:罗文杰\\专业: 计算机科学与技术\\学号: 3210102456}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{3.38}
+The memory address is the location of data, and the memory’s addressability is the number of bits that one memory location can store.
+
+\section*{3.40}
+(a) 4 locations.
+
+(b) 4 bits.
+
+(c) 0001.
+
+\section*{3.53}
+(a)\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|c|}
+      \hline
+      cycle0 & cycle1 & cycle2 & cycle3 & cycle4 & cycle5 & cycle6 & cycle7  \\
+      \hline
+      0 & 1 & 1 & 1 & 1 & 0 & 0 & 0 \\
+      \hline
+      0 & 1 & 1 & 0 & 0 & 1 & 1 & 0 \\
+      \hline  
+      0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\
+      \hline  
+      \end{tabular}
+      \end{table}
+
+Delaying the clock cycle.
+\section*{3.61}
+(a)\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|}
+      \hline
+      S1 & S0 & X & Z & S1' & S0' \\
+      \hline
+      0 & 0 & 0 & 1 & 0 & 0 \\
+      \hline
+      0 & 0 & 1 & 1 & 0 & 1 \\
+      \hline  
+      0 & 1 & 0 & 0 & 1 & 0 \\
+      \hline  
+      0 & 1 & 1 & 0 & 0 & 0 \\
+      \hline 
+      1 & 0 & 0 & 0 & 0 & 1 \\
+      \hline
+      1 & 0 & 1 & 0 & 1 & 0 \\
+      \hline
+      1 & 1 & 0 & 0 & 0 & 0 \\
+      \hline
+      1 & 1 & 1 & 0 & 0 & 0 \\
+      \hline
+      \end{tabular}
+      \end{table}
+
+(b)\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{6.jpg}
+\end{figure}
+
+\section*{4.1}
+Memory:storing data.
+
+Processing Unit:process information
+
+Input:take information into the computer
+
+Output:take information out of the computer.
+
+Control Unit:control other parts to make them perform correctly.
+
+\section*{4.7}
+60 opcodes need 6bits, and 32 registers need 5bits, so IMM has 16 bits, the rang of its value is (-32768,32767).
+
+\bibliography{reference}
+\end{document}

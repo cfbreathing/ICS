@@ -1,0 +1,91 @@
+\documentclass[20pt]{ctexart}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{lmodern}
+\usepackage{xeCJK}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{verbatimbox}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{verbatimbox}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+%设置新环境
+\newtheorem{example}{例}             
+\newtheorem{theorem}{定理}[section] 
+\newtheorem{definition}{定义}[section]
+\newtheorem{property}{性质}
+\newtheorem{proposition}{命题}
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}
+\newtheorem{remark}{注}
+\newtheorem{condition}{条件}
+\newtheorem{conclusion}{结论}
+\newtheorem{assumption}{假设}
+\newenvironment{solution}{\begin{proof}[\indent\bf 解]}{\end{proof}}%设置新环境
+\CTEXsetup[format={\Large\bfseries}]{section}%加入字体
+\geometry{a4paper,scale=0.8}%设置文档格式
+\tikzstyle{file} = [rectangle, rounded corners, minimum width = 3cm, minimum height=1.2cm ,text centered, draw = black]%设置流程图
+\tikzstyle{dots} = [rectangle, rounded corners, minimum width = 1.5cm, minimum height=2cm ,text centered, draw = black,text width=3cm]%设置流程图
+\tikzstyle{arrow} = [->,>=stealth]%设置流程图
+\usetikzlibrary{arrows, decorations.pathmorphing, backgrounds, positioning, fit, petri, automata}%使用流程图元素
+\bibliographystyle{unsrt}%设置引用格式
+
+\title{Homework4}
+\author{作者:罗文杰\\专业: 计算机科学与技术\\学号: 3210102456}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{4.3}
+The program counter's value is the address of the next instruction, not the count of the sort. So the name 'Instruction Pointer' is more appropriate for it.
+
+\section*{4.8}
+(a) Since $2^8=256$ , it needs 8 bits to represent the OPCODE.
+
+(b) Since $2^7=128$  , it needs 7 bits to represent the DR.
+
+(c) The maximun number of UNUSED bits is 3 bits.
+
+\section*{4.9}
+The another is that making the MAR loaded with the contents of the PC, and incrementing the PC.
+
+\section*{4.19}
+(a) MAR:010 MDR:01010000
+
+(b) MAR:001 MDR:00111001
+
+\section*{5.1}
+(a) ADD: operate; register addressing for destination and register or immediate addressing.
+
+(b) JMP: control; register addressing.
+
+(c) LEA: data movement; immediate addressing.
+
+(d) NOT: operate; register addressing.
+
+\section*{5.4}
+(a)8bits.
+
+(b)since the range of offset is 40, so the bits needed is 6.
+
+(c)PC counter is incremented to 4, so the offset is 6.
+
+\section*{5.9}
+(a)it's not the same as NOP since it can sets the CC's.
+
+(b)since the PC is incremented by 2 after the instruction(1 by uncondition), so the instruction is not the same as NOP.
+
+(c)it's the same as NOP.
+
+\bibliography{reference}
+\end{document}

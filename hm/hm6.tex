@@ -1,0 +1,115 @@
+\documentclass[20pt]{ctexart}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{lmodern}
+\usepackage{xeCJK}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{verbatimbox}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{verbatimbox}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+%设置新环境
+\newtheorem{example}{例}             
+\newtheorem{theorem}{定理}[section] 
+\newtheorem{definition}{定义}[section]
+\newtheorem{property}{性质}
+\newtheorem{proposition}{命题}
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}
+\newtheorem{remark}{注}
+\newtheorem{condition}{条件}
+\newtheorem{conclusion}{结论}
+\newtheorem{assumption}{假设}
+\newenvironment{solution}{\begin{proof}[\indent\bf 解]}{\end{proof}}%设置新环境
+\CTEXsetup[format={\Large\bfseries}]{section}%加入字体
+\geometry{a4paper,scale=0.8}%设置文档格式
+\tikzstyle{file} = [rectangle, rounded corners, minimum width = 3cm, minimum height=1.2cm ,text centered, draw = black]%设置流程图
+\tikzstyle{dots} = [rectangle, rounded corners, minimum width = 1.5cm, minimum height=2cm ,text centered, draw = black,text width=3cm]%设置流程图
+\tikzstyle{arrow} = [->,>=stealth]%设置流程图
+\usetikzlibrary{arrows, decorations.pathmorphing, backgrounds, positioning, fit, petri, automata}%使用流程图元素
+\bibliographystyle{unsrt}%设置引用格式
+
+\title{Homework6}
+\author{作者:罗文杰\\专业: 计算机科学与技术\\学号: 3210102456}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{6.3}
+Since the x4001 may correctly indirect which mechine is busy, we CAN'T just add to x4001, while using OR operation to make it.
+
+x3000 1010 000 000001111; LDI R0, S 
+
+x3001 1010 001 000001101; LDI R1, I 
+
+x3002 0101 010 010 1 00000; AND R2, R2, \#0 
+
+x3003 0001 010 010 1 00001; ADD R2, R2, \#1 
+
+x3004 0001 001 001 1 11111; Loop ADD R1, R1, \#-1 
+
+x3005 0000 100 000000010; BRz Decrement 
+
+x3006 0001 010 010 0 00 010; ADD R2, R2, R2 
+
+x3007 0000 111 111111100; BRz Loop 
+
+x3008 0001 001 010 1 00000; Decement ADD R1, R2, \#0 
+
+x3009 1001 000 000 111111; NOT R0, R0 
+
+x300a 1001 001 001 111111; NOT R1, R1 
+
+x300b 0101 000 000 0 00001; AND R0, R0, R1 
+
+x300c 1001 000 000 111111; NOT R0, R0 
+
+x300d 1011 000000000001; STI R0, S 
+
+x300e 1111 000000100101; TRAP x25 
+
+x300f 0100000000000000; I .FILL x4000 
+
+x300e 0100000000000001; S .FILL x4001
+
+\section*{7.4}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        Symbol & Address  \\
+        \hline
+        TEST & x301F \\
+        \hline
+        FINSH & x3027 \\
+        \hline  
+        SAVE3 & x3029 \\
+        \hline          
+        SAVE2 & x302A \\
+        \hline
+        \end{tabular}
+        \end{table}
+
+\section*{7.18}
+(a) LDR  R3, R1, \#0
+
+(b) NOT  R3, R3
+
+(c) ADD  R3, R3, \#1
+
+\section*{7.20}
+In program(a), the value will be stored when the program runs, while program(b) will store the vaule once the object module is loaded into Memory. 
+
+\bibliography{reference}
+\end{document}

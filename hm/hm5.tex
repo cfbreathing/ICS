@@ -1,0 +1,105 @@
+\documentclass[20pt]{ctexart}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{lmodern}
+\usepackage{xeCJK}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{verbatimbox}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{verbatimbox}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+%设置新环境
+\newtheorem{example}{例}             
+\newtheorem{theorem}{定理}[section] 
+\newtheorem{definition}{定义}[section]
+\newtheorem{property}{性质}
+\newtheorem{proposition}{命题}
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}
+\newtheorem{remark}{注}
+\newtheorem{condition}{条件}
+\newtheorem{conclusion}{结论}
+\newtheorem{assumption}{假设}
+\newenvironment{solution}{\begin{proof}[\indent\bf 解]}{\end{proof}}%设置新环境
+\CTEXsetup[format={\Large\bfseries}]{section}%加入字体
+\geometry{a4paper,scale=0.8}%设置文档格式
+\tikzstyle{file} = [rectangle, rounded corners, minimum width = 3cm, minimum height=1.2cm ,text centered, draw = black]%设置流程图
+\tikzstyle{dots} = [rectangle, rounded corners, minimum width = 1.5cm, minimum height=2cm ,text centered, draw = black,text width=3cm]%设置流程图
+\tikzstyle{arrow} = [->,>=stealth]%设置流程图
+\usetikzlibrary{arrows, decorations.pathmorphing, backgrounds, positioning, fit, petri, automata}%使用流程图元素
+\bibliographystyle{unsrt}%设置引用格式
+
+\title{Homework5}
+\author{作者:罗文杰\\专业: 计算机科学与技术\\学号: 3210102456}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{5.15}
+R1:0x3121
+
+R2:0x4566
+
+R3:0xabcd
+
+R4:0xabcd
+
+\section*{5.16}
+(a) PC-relative mode
+
+(b) Indirect mode
+
+(c) Base-offset mode
+
+\section*{5.37}
+IR, PC, Reg File, the SEXT unit, Memory, MDR, MAR, is connected to IR[8:0]; MAXMUX and GateMARMUX implement the LDI instruction, alongwith NZP and the logic which goes with it.
+
+\section*{5.39}
+IR, PC, Reg File, the SEXT unit, Memory, MDR, MAR, is connected to IR[8:0]; MAXMUX and GateMARMUX implement the LEA instruction, alongwith NZP and the logic which goes with it.
+
+\section*{5.50}
+The conditional Branch: PC.
+
+The Load Effective Address: R7.
+
+The LD instruction: R7.
+\section*{6.9}
+0010 000 0 0000 0101; LD, R0, Z 
+
+0010 001 0 0000 0101; LD, R1, C 
+
+1111 0000 0010 0001; L, TRAP x21 
+
+0001 001 001 1 11111; ADD R1, R1, \#-1 
+
+0000 001 1 11111101; BRp PC-3
+
+1111 0000 0010 0101; TRAP x25 
+
+0000 0000 0101 1010; Z .FILL x5A 
+
+0000 0000 0110 0100; C .FILL \#100 
+
+
+\section*{6.10}
+This program branches Brz to x3010 if the number in R2 is even and branches to x3011 if the number in R2 is odd.
+
+x3000 0101 000 010 1 00001; AND R0, R2, \#1 
+
+x3001 0000 010 0 00001110; BRp Even 
+
+x3002 0000 101 0 00001111; BRp Odd 
+
+\bibliography{reference}
+\end{document}

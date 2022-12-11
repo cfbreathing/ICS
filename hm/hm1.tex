@@ -1,0 +1,100 @@
+\documentclass[20pt]{ctexart}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{lmodern}
+\usepackage{xeCJK}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{verbatimbox}
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{verbatimbox}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+%设置新环境
+\newtheorem{example}{例}             
+\newtheorem{theorem}{定理}[section] 
+\newtheorem{definition}{定义}[section]
+\newtheorem{property}{性质}
+\newtheorem{proposition}{命题}
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}
+\newtheorem{remark}{注}
+\newtheorem{condition}{条件}
+\newtheorem{conclusion}{结论}
+\newtheorem{assumption}{假设}
+\newenvironment{solution}{\begin{proof}[\indent\bf 解]}{\end{proof}}%设置新环境
+\CTEXsetup[format={\Large\bfseries}]{section}%加入字体
+\geometry{a4paper,scale=0.8}%设置文档格式
+\tikzstyle{file} = [rectangle, rounded corners, minimum width = 3cm, minimum height=1.2cm ,text centered, draw = black]%设置流程图
+\tikzstyle{dots} = [rectangle, rounded corners, minimum width = 1.5cm, minimum height=2cm ,text centered, draw = black,text width=3cm]%设置流程图
+\tikzstyle{arrow} = [->,>=stealth]%设置流程图
+\usetikzlibrary{arrows, decorations.pathmorphing, backgrounds, positioning, fit, petri, automata}%使用流程图元素
+\bibliographystyle{unsrt}%设置引用格式
+
+\title{Homework1}
+\author{作者:罗文杰\\专业: 计算机科学与技术\\学号: 3210102456}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{1.9}
+Yes, they are, provided they can be organised into a series of unambiguous logical statements.
+
+\section*{1.11}
+Open a folder, find the file, and do something.
+
+\section*{1.16}
+Storage system, data types, register, addressing modes.
+
+\section*{1.18}
+A single microarchitecture usually implements only one ISA, but a ISA can have many microarchitecture to exist for it.
+
+\section*{2.8}
+(a) binary: 0111 1111, decimal: 127.
+
+(b) binary: 1000 0000, decimal: -128.
+
+(c) $2^{n-1}-1 $
+
+(d) $-2^{n-1}$
+
+\section*{2.14}
+(a) 1100
+
+(b) 1010
+
+(c) 1111
+
+(d) 01011
+
+(e) 10000
+
+\section*{2.22}
+16384+16384=-32768
+
+\section*{2.24}
+32768+32768=0
+
+\section*{2.27}
+The problem is that the two positive number adds to a nagetive number because overflow.
+
+\section*{2.34}
+(a) 0111
+
+(b) 0111
+
+(c) 1101
+
+(d) 0110
+
+\bibliography{reference}
+\end{document}
